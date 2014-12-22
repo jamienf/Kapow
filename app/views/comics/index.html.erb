@@ -2,11 +2,12 @@
   <div class="row">
     <div class="small-10 large-centered columns">
       <div class="panel">
-        <h5>Panel Title</h5>
-
-        <img src=<%= list %> align=center>
-
-        <p>This is a six columns grid panel with an arbitrary height. Bacon ipsum dolor sit amet salami ham hock biltong ball tip drumstick sirloin pancetta meatball short loin.</p>
+        <strong><%=list["name"]%></strong>
+        <p>Title: <%=list["title"]%></p>
+        <img src=<%= list["image"] %> align=center>
+        <p>
+        <a href=<%=list["archive"]%>>Visit the full <%=list["name"]%>
+          archive here!</a></p>
       </div>
     </div>
   </div>
