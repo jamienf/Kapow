@@ -15,3 +15,5 @@
       img_src = Nokogiri::HTML(open(comic.url_source)).css("comic.img_div_source").attr('src')
       "#{img_src}"
     end
+
+  -
