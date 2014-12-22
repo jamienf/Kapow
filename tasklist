@@ -1,0 +1,17 @@
+# Get comics to show up on main page.
+# get comics to read from links stored in a database
+  - need a source file for the img, artist, forum.
+  - show page should have an each do with the following attributes:
+    def COMICNAME_image_url(page_url = 'http://WEBSITE URL.com/')
+      html = open(page_url)
+      doc = Nokogiri::HTML(html)
+      src = doc.css("div#LOCATION_OF_THE_DIV img").attr('src')
+      "#{src}"
+    end
+
+    so:
+
+    show_comic.each do
+      img_src = Nokogiri::HTML(open(comic.url_source)).css("comic.img_div_source").attr('src')
+      "#{img_src}"
+    end
