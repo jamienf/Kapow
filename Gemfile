@@ -13,5 +13,5 @@ gem 'sdoc', '~> 0.4.0',          group: :doc
 
 gem 'spring',        group: :development
 
-require 'nokogiri'
-require 'open-uri'
+gem 'nokogiri'
+gem 'open-uri'
