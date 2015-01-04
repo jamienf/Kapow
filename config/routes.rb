@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'comics/index'
 
   resources :comics, only: [:index, :show]

@@ -8,3 +8,10 @@ class ComicsController < ApplicationController
     @comic_list << ComicScraper.xkcd_info
   end
 end
+
+    # @comics = Comic.all
+    # if user_signed_in?
+      # @comics.each do |comic|
+      #   @comic_list << comic.scraper_name
+      # end
+    # end
