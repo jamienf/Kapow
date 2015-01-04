@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   get 'comics/index'
 
   resources :comics, only: [:index, :show]
+    resources :settings
 
   root 'comics#index'
 

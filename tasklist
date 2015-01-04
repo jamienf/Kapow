@@ -17,3 +17,9 @@
     end
 
   -
+
+
+
+instead of having links of information. a user can click a post button that
+creates a valid entry in the data base for activating a comic. So the database
+will only contain comics that are active
