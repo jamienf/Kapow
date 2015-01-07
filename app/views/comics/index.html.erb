@@ -1,12 +1,14 @@
-<% @comic_list.each do |list| %>
+<% @comic.each do |list| %>
   <div class="row">
     <div class="small-10 large-centered columns">
       <div class="panel">
-        <h3><strong><%=list["name"]%></strong></h3>
+        <h3><strong><%= list.name %></strong></h3>
         <p></p>
-        <img src=<%= list["image"] %>>
+         <% doc = Nokogiri::HTML(open(list.scraper_url)) %>
+         <% src = doc.css(list.scraper_div).attr(list.scraper_src) %>
+         <img src="<%= "#{src}" %>" />
         <p></p>
-        <a href=<%=list["archive"]%>><%=list["name"]%> archive</a>
+        <a href=<%= list.archive_url %>><%=list.name %> archive</a>
       </div>
     </div>
   </div>

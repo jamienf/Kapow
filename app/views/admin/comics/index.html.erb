@@ -1,0 +1,25 @@
+<div class="row">
+  <div class="small-10 large-centered columns">
+    <h3> Admin Section </h3>
+    <TABLE>
+      <TR>
+        <TD><strong>comic name</TD>
+        <TD><strong>scraper_url</TD>
+        <TD><strong>scraper_div</TD>
+        <TD><strong>scraper_src</TD>
+        <TD><strong>archive_url</TD>
+      </TR>
+      <% @comics.each do |info| %>
+        <TR>
+          <TD><%= info.name %></TD>
+          <TD><%= info.scraper_url %></TD>
+          <TD><%= info.scraper_div %></TD>
+          <TD><%= info.scraper_src %></TD>
+          <TD><%= info.archive_url %></TD>
+          <TD><%= link_to 'Edit' %></TD>
+          <TD><%= link_to 'Delete' %></TD>
+        </TR>
+      <% end %>
+    </TABLE>
+  </div>
+</div>

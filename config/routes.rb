@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   resources :comics, only: [:index, :show]
     resources :settings
 
+  namespace :admin do
+    resources :comics
+  end
+
   root 'comics#index'
 
   # Example of regular route:
