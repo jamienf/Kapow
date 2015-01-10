@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   get 'comics/index'
 
-  resources :comics, only: [:index, :show, :create]
+  resources :comics, only: [:index, :show, :create, :destroy]
     resources :settings
 
   namespace :admin do

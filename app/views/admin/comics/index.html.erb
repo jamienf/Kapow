@@ -17,8 +17,8 @@
           <TD><%= info.scraper_div %></TD>
           <TD><%= info.scraper_src %></TD>
           <TD><%= info.archive_url %></TD>
-          <TD><%= link_to 'Edit' %></TD>
-          <TD><%= link_to 'Delete' %></TD>
+          <TD><%= link_to 'Edit', edit_admin_comic_path(info) %></TD>
+          <TD><%= link_to 'Delete', admin_comic_path(info), method: :delete, data: { confirm: "Are you sure?"} %></TD>
         </TR>
       <% end %>
     </TABLE>
