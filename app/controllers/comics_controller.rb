@@ -10,6 +10,7 @@ class ComicsController < ApplicationController
 
   def create
     @comic = Comic.new(comic_params)
+    # @favorite = Favorite.new(favorite_params)
 
     if @comic.save
       redirect_to admin_comics_path
