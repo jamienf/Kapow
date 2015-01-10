@@ -4,6 +4,7 @@
     <p><%= link_to 'Add new comic', new_admin_comic_path %></p>
     <TABLE>
       <TR>
+        <TD><strong>id</TD>
         <TD><strong>comic name</TD>
         <TD><strong>scraper_url</TD>
         <TD><strong>scraper_div</TD>
@@ -12,6 +13,7 @@
       </TR>
       <% @comics.each do |info| %>
         <TR>
+          <TD><%= info.id %></TD>
           <TD><%= info.name %></TD>
           <TD><%= info.scraper_url %></TD>
           <TD><%= info.scraper_div %></TD>

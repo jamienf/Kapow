@@ -9,7 +9,7 @@ class Admin::ComicsController < ApplicationController
   end
 
   def create
-    @comic = Comic.new(playlist_params)
+    @comic = Comic.new(comic_params)
 
     if @comic.save
       redirect_to admin_comics_path
