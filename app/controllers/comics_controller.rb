@@ -19,9 +19,20 @@ class ComicsController < ApplicationController
     end
   end
 
+  def update
+    @comic = Comic.find(params[:id])
+    if @comic.update(comic_params)
+      redirect_to admin_comics_path
+      flash[:notice] = "Your comic has been successfully updated."
+    else
+      render :edit
+      flash[:alert] = "Please fill out the forms correctly."
+    end
+  end
+
   private
 
-  def playlist_params
+  def comic_params
     params.require(:comic).permit(:name, :scraper_url, :scraper_div, :scraper_src, :archive_url)
   end
 end

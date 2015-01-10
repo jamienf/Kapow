@@ -20,11 +20,7 @@ class Admin::ComicsController < ApplicationController
   end
 
   def edit
-    @comic = current_user.comic.find(params[:id])
-  end
-
-  def update
-    @comic = current_user.comic.find(params[:id])
+    @comic = Comic.find(params[:id])
   end
 
   def destroy
@@ -40,7 +36,7 @@ class Admin::ComicsController < ApplicationController
 
   private
 
-  def playlist_params
+  def comic_params
     params.require(:comic).permit(:name, :scraper_url, :scraper_div, :scraper_src, :archive_url)
   end
 
