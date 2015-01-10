@@ -1,0 +1,10 @@
+<% if @comic.errors.any? %>
+  <div><% @comic.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+<% end %>
+
+
+<h2>Comic Form</h2>
+
+<%= render "edit_comic_form" %>

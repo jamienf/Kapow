@@ -1,0 +1,32 @@
+<%= form_for @comic do |f| %>
+
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :scraper_url %>
+    <%= f.text_field :scraper_url %>
+  </div>
+
+  <div>
+    <%= f.label :scraper_div %>
+    <%= f.text_field :scraper_div %>
+  </div>
+
+  <div>
+    <%= f.label :scraper_src %>
+    <%= f.text_field :scraper_src %>
+  </div>
+
+  <div>
+    <%= f.label :archive_url %>
+    <%= f.text_field :archive_url %>
+  </div>
+
+  <p>
+    <%= f.submit "Submit Admin Comic" %>
+  </p>
+
+<% end %>

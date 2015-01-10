@@ -19,9 +19,24 @@ class Admin::ComicsController < ApplicationController
     end
   end
 
+  def edit
+    @comic = Comic.find(params[:id])
+  end
+
+  def destroy
+    @comic = Comic.find(params[:id])
+    if @comic.destroy
+      flash[:notice] = "Comic successfully deleted"
+      redirect_to admin_comics_path
+    else
+      flash[:alert] = "Failed to delete comic."
+      redirect_to admin_comics_path
+    end
+  end
+
   private
 
-  def playlist_params
+  def comic_params
     params.require(:comic).permit(:name, :scraper_url, :scraper_div, :scraper_src, :archive_url)
   end
 
