@@ -2,7 +2,8 @@
   <div class="small-10 large-centered columns">
     <% @comic.each do |list| %>
       <br>
-      <%= link_to "Add", favorites_path(list), method: :post %>
+      <%= link_to "Add", favorites_path(list), method: :post %> |
+      <%= link_to "Remove", favorite_path(list), method: :delete %> |
       <strong><%= list.name %></strong>
     <% end %>
   </div>

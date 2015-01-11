@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   get 'comics/index'
 
   resources :comics, only: [:index, :show, :create, :destroy, :update]
-  resources :favorites, only: [:index, :create]
+  resources :favorites, only: [:index, :create, :destroy]
 
   namespace :admin do
     resources :comics

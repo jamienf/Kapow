@@ -11,16 +11,20 @@ class FavoritesController < ApplicationController
     else
       redirect_to favorites_path, alert: 'Something went wrong...*sad panda*'
     end
-    # @favorite = Favorite.find_or_initialize_by(user: current_user, comic: @comic)
-    # @favorite.save
   end
 
   def destroy
+    @favorite = Favorite.where(user: current_user, comic_id: params[:id])
+    if @favorite.destroy(@favorite)
+      redirect_to favorites_path, notice: "Your comic has been successfully deleted."
+    else
+      redirect_to favorites_path, alert: 'Something went wrong...*sad panda*'
+    end
   end
 
   private
 
-  def favorite_params
-    params.require(:favorite).permit(:user, :format)
-  end
+  # def favorite_params
+  #   params.require(:favorite).permit(:user, :format)
+  # end
 end
