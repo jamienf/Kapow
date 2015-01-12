@@ -1,6 +1,11 @@
 class FavoritesController < ApplicationController
   def index
-    @comic = Comic.all
+    if signed_in?
+      @comic = Comic.all
+    else
+      flash[:notice] = "You must be logged in to access this page."
+      redirect_to root_path
+    end
   end
 
   def create
