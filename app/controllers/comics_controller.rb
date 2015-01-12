@@ -1,7 +1,9 @@
 require 'open-uri'
 class ComicsController < ApplicationController
   def index
-    @comic = Comic.all
+    if signed_in?
+      @comic = current_user.comics
+    end
   end
 
   def new
@@ -10,8 +12,6 @@ class ComicsController < ApplicationController
 
   def create
     @comic = Comic.new(comic_params)
-    # @favorite = Favorite.new(favorite_params)
-
     if @comic.save
       redirect_to admin_comics_path
       flash[:notice] = "You have successfully entered a new car listing"

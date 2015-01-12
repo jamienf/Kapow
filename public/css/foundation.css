@@ -1945,6 +1945,15 @@ meta.foundation-mq-topbar {
   .panel.radius {
     border-radius: 3px; }
 
+.panel2 {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #d8d8d8;
+  margin-bottom: 1.25rem;
+  padding: 1.25rem;
+  text-align: left;
+  background: #f2f2f2; }
+
 .dropdown.button, button.dropdown {
   position: relative;
   padding-right: 3.5625rem; }

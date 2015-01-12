@@ -1,4 +1,4 @@
 class Comic < ActiveRecord::Base
   has_many :favorites
-  has_many :users
+  has_many :users, through: :favorites
 end

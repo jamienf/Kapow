@@ -1,14 +1,34 @@
-<% @comic.each do |list| %>
+<% if signed_in? %>
+  <% if @comic.empty? %>
+    <div class="row">
+      <div class="small-10 large-centered columns">
+        <div class="panel">
+          <p>You haven'y subscribed to any comics! Click on settings and subscribe to some!</p>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <% @comic.each do |list| %>
+      <div class="row">
+        <div class="small-10 large-centered columns">
+          <div class="panel">
+            <h3><strong><%= list.name %></strong></h3>
+            <p></p>
+             <% doc = Nokogiri::HTML(open(list.scraper_url)) %>
+             <% src = doc.css(list.scraper_div).attr(list.scraper_src) %>
+             <img src="<%= "#{src}" %>" />
+            <p></p>
+            <a href=<%= list.archive_url %>><%=list.name %> archive</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+<% else %>
   <div class="row">
-    <div class="small-10 large-centered columns">
+    <div class="small-4 large-centered columns">
       <div class="panel">
-        <h3><strong><%= list.name %></strong></h3>
-        <p></p>
-         <% doc = Nokogiri::HTML(open(list.scraper_url)) %>
-         <% src = doc.css(list.scraper_div).attr(list.scraper_src) %>
-         <img src="<%= "#{src}" %>" />
-        <p></p>
-        <a href=<%= list.archive_url %>><%=list.name %> archive</a>
+        <p>Please sign-up/sign-in</p>
       </div>
     </div>
   </div>

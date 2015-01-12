@@ -1,4 +1,3 @@
-require 'pry'
 class FavoritesController < ApplicationController
   def index
     @comic = Comic.all
@@ -7,18 +6,19 @@ class FavoritesController < ApplicationController
   def create
     @favorite = Favorite.new(user: current_user, comic_id: params[:format])
     if @favorite.save
-      redirect_to favorites_path, notice: 'Comic has been favorited'
+      redirect_to favorites_path, notice: 'Comic has been favorited!'
     else
-      redirect_to favorites_path, alert: 'Something went wrong...*sad panda*'
+      redirect_to favorites_path, alert: 'You have already favorited this comic!'
     end
   end
 
   def destroy
     @favorite = Favorite.where(user: current_user, comic_id: params[:id])
-    if @favorite.destroy(@favorite)
-      redirect_to favorites_path, notice: "Your comic has been successfully deleted."
+    if Favorite.where(user: current_user, comic_id: params[:id]).empty?
+      redirect_to favorites_path, alert: 'You aren\'t subscribed to this comic!'
     else
-      redirect_to favorites_path, alert: 'Something went wrong...*sad panda*'
+      @favorite.destroy(@favorite)
+      redirect_to favorites_path, notice: "Your comic has been successfully deleted."
     end
   end
 
